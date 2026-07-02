@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>СтройКомфорт — проектирование, строительство и отделка</title>
+<meta name="description" content="Проектирование, строительство и отделка объектов капитального строительства. Работаем с 2014 года.">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzUlEQVR4nO3XyxGDMAxFUZE2UgItpAkayYLUEVqhGuoJq8xkwJLek+V4gxu4xx8tPNwfz490XLee8QuQAtjW+d0N8I1v6/x/wHHnUUQIoB17BEEDvDtnERQAfXAMAgawrx1FQIDoqCEIF1A75x7CBNTGEYQKyIp7iCIgO24hToBWcQ1xAozT8moJGKfFBrREHOMqoAWiFDcBmQgt7gIyEFYcAtQgvDgMiCCQOAVgEGicBiAIJh4CWAg2HgaUEJF4FeAXEY2LiAzX57Q3YAdD+FpK2XrI/AAAAABJRU5ErkJggg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+#allrecords a, .t-body a, .t396 a { color: inherit !important; text-decoration: none !important; }
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1B3C6E;--blue-dark:#162E58;--blue-deep:#111E35;
+  --cream:#F0EBE0;--cream-dark:#E4DDD1;--cream-mid:#D4CFC5;
+  --accent:'Cormorant Garamond', serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#111;color:#fff;overflow-x:hidden}
+em{font-style:normal;font-weight:600;letter-spacing:-0.5px}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 48px;height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(17,30,53,0.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(240,235,224,0.08);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-text{font-size:14px;font-weight:600;color:#F0EBE0 !important;letter-spacing:2px}
+.nav-links{display:flex;gap:8px;list-style:none}
+.nav-links a{
+  font-size:13px;color:rgba(240,235,224,0.65) !important;text-decoration:none;
+  padding:8px 16px;border-radius:20px;transition:all 0.2s;
+}
+.nav-links a:hover{color:#F0EBE0 !important;background:rgba(240,235,224,0.08)}
+.nav-cta{
+  background:#F0EBE0;color:#1B3C6E !important;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+  padding:9px 20px;border:none;border-radius:2px;
+  cursor:pointer;text-decoration:none;letter-spacing:0.5px;
+  transition:background 0.2s;
+}
+.nav-cta:hover{background:#fff}
+
+/* HERO */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:flex-end;
+  overflow:hidden;
+}
+.hero-img{
+  position:absolute;inset:0;
+  background:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782135932/%D0%A8%D0%B0%D0%BF%D0%BA%D0%B0_%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8F_ayqjbu.jpg') center/cover no-repeat;
+  filter:sepia(15%) contrast(110%) brightness(80%) saturate(85%);
+  transform:scale(1.03);
+  transition:transform 8s ease;
+}
+.hero-img.loaded{transform:scale(1)}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(17,30,53,0.92) 0%, rgba(17,30,53,0.35) 55%, rgba(17,30,53,0.12) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 48px 64px;
+  max-width:720px;
+}
+.hero-eyebrow{
+  display:inline-block;
+  font-size:11px;font-weight:500;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(240,235,224,0.55);margin-bottom:24px;
+  padding-bottom:14px;border-bottom:1px solid rgba(240,235,224,0.18);
+}
+.hero h1{
+  font-size:48px;font-weight:200;line-height:1.16;letter-spacing:-1.2px;
+  color:#F0EBE0;margin-bottom:26px;
+}
+.hero h1 em{display:block;font-weight:600}
+.hero-sub{
+  font-size:16px;color:rgba(240,235,224,0.7);line-height:1.7;
+  max-width:480px;margin-bottom:36px;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{
+  background:#F0EBE0;color:#1B3C6E !important;
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  padding:13px 28px;border:none;border-radius:2px;
+  cursor:pointer;text-decoration:none;letter-spacing:0.3px;
+  transition:background 0.2s;display:inline-block;
+}
+.btn-primary:hover{background:#fff}
+.btn-ghost{
+  background:transparent;color:#F0EBE0 !important;
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:400;
+  padding:12px 28px;border:1px solid rgba(240,235,224,0.3);border-radius:2px;
+  cursor:pointer;text-decoration:none;display:inline-block;
+  transition:border-color 0.2s;
+}
+.btn-ghost:hover{border-color:rgba(240,235,224,0.7)}
+
+/* STATS */
+.stats{
+  background:#1B3C6E;
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat{
+  padding:32px 24px;text-align:center;
+  border-right:1px solid rgba(240,235,224,0.1);
+}
+.stat:last-child{border-right:none}
+.stat-num{font-size:36px;font-weight:300;color:#F0EBE0 !important;letter-spacing:-1px;line-height:1;}
+.stat-num sup{font-size:18px;vertical-align:super;font-weight:500}
+.stat-label{font-size:11px;color:rgba(240,235,224,0.5) !important;text-transform:uppercase;letter-spacing:1.5px;margin-top:8px}
+
+/* UNIQUE / INTRO SECTION — full viewport height */
+.intro{
+  background:#F0EBE0;padding:64px 48px;
+  min-height:100vh;
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;
+}
+.intro-text .section-label-dark{margin-bottom:14px}
+.intro-text h2{
+  font-size:34px;font-weight:200;color:#1B3C6E !important;
+  letter-spacing:-0.8px;line-height:1.24;margin-bottom:22px;
+}
+
+.intro-text p{font-size:15px;color:#5A5650 !important;line-height:1.8;margin-bottom:16px}
+.intro-points{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.intro-point{display:flex;gap:14px;align-items:flex-start}
+.intro-point-mark{
+  width:6px;height:6px;border-radius:50%;background:#1B3C6E;
+  margin-top:8px;flex-shrink:0;
+}
+.intro-point-text{font-size:14px;color:#3a362f;line-height:1.6}
+.intro-point-text strong{color:#1B3C6E;font-weight:600}
+.intro-img{
+  height:100%;min-height:480px;
+  background:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782135828/%D0%96%D1%83%D1%80%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_14_jilapb.png') center/cover;
+  filter:sepia(10%) contrast(108%) brightness(97%) saturate(88%);
+  border-radius:2px;
+}
+
+/* PROJECTS */
+.projects{background:#111E35;padding:80px 48px}
+.section-label{font-size:10px;text-transform:uppercase;letter-spacing:3px;color:rgba(240,235,224,0.4) !important;font-weight:500;margin-bottom:12px}
+.section-title-light{font-size:36px;font-weight:200;color:#F0EBE0 !important;letter-spacing:-0.8px;margin-bottom:48px}
+
+
+.projects-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:2px}
+.proj-card{position:relative;overflow:hidden;cursor:pointer;grid-column:span 2}
+.proj-card.large{grid-column:span 4}
+.proj-card.half{grid-column:span 3}
+.proj-img{
+  width:100%;height:100%;min-height:300px;
+  background-size:cover;background-position:center;
+  filter:sepia(12%) contrast(108%) brightness(85%) saturate(88%);
+  transition:transform 0.6s ease,filter 0.4s ease;
+}
+.proj-card:hover .proj-img{transform:scale(1.04);filter:sepia(5%) contrast(108%) brightness(95%) saturate(90%)}
+.proj-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(17,30,53,0.9) 0%, transparent 60%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:24px;
+}
+.proj-tag{
+  font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:2px;
+  color:rgba(240,235,224,0.6);margin-bottom:6px;
+}
+.proj-name{font-size:17px;font-weight:500;color:#F0EBE0;line-height:1.3}
+.proj-card.large .proj-name{font-size:23px}
+.proj-meta{font-size:12px;color:rgba(240,235,224,0.45);margin-top:6px}
+
+/* SERVICES — restructured: client services vs partner services */
+.services{background:#F0EBE0;padding:72px 48px}
+.section-label-dark{font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#1B3C6E !important;opacity:0.5;font-weight:500;margin-bottom:12px}
+.section-title-dark{font-size:36px;font-weight:200;color:#1B3C6E !important;letter-spacing:-0.8px;margin-bottom:8px}
+
+.section-sub{font-size:14px;color:#5A5650;margin-bottom:36px;max-width:600px;line-height:1.6}
+
+.services-block-title{
+  font-size:13px;font-weight:600;color:#1B3C6E;letter-spacing:1px;text-transform:uppercase;
+  margin:32px 0 16px;display:flex;align-items:center;gap:10px;
+}
+.services-block-title:first-of-type{margin-top:0}
+.services-block-title::after{content:'';flex:1;height:1px;background:#D4CFC5}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#D4CFC5}
+.svc-card{
+  background:#F0EBE0;padding:20px 22px;
+  transition:background 0.2s;
+}
+.svc-card:hover{background:#E4DDD1}
+.svc-num{font-size:11px;font-weight:600;color:#1B3C6E;opacity:0.3;letter-spacing:2px;margin-bottom:8px}
+.svc-title{font-size:14px;font-weight:600;color:#1B3C6E;margin-bottom:6px}
+.svc-text{font-size:13px;color:#5A5650;line-height:1.7}
+
+/* PROCESS (replaces "Why") */
+.process{background:#1B3C6E;padding:80px 48px;position:relative;overflow:hidden}
+.process-geo{position:absolute;right:-60px;top:-60px;opacity:0.05}
+.process-steps{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  position:relative;z-index:2;margin-top:8px;
+}
+.process-step{
+  position:relative;padding:0 20px 0 0;
+}
+.process-step:not(:last-child)::after{
+  content:'';position:absolute;top:20px;right:0;width:100%;height:1px;
+  background:rgba(240,235,224,0.15);
+}
+.process-num{
+  width:40px;height:40px;
+  background:rgba(240,235,224,0.12);color:#F0EBE0;
+  font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;letter-spacing:0.5px;position:relative;z-index:2;
+  ;
+}
+.process-title{font-size:14px;font-weight:600;color:#F0EBE0;margin:16px 0 8px}
+.process-text{font-size:12.5px;color:rgba(240,235,224,0.6);line-height:1.6}
+
+/* PHOTO STRIP */
+.photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#111}
+.strip-img{
+  height:280px;
+  background-size:cover;background-position:center;
+  filter:sepia(12%) contrast(108%) brightness(85%) saturate(88%);
+  transition:filter 0.4s;
+}
+.strip-img:hover{filter:sepia(5%) contrast(108%) brightness(95%)}
+
+/* PARTNERS */
+.partners{background:#F0EBE0;padding:64px 48px}
+.partners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.partner-card{
+  background:#fff;border:1px solid var(--cream-mid);border-radius:3px;
+  padding:24px;
+}
+.partner-card-title{font-size:13px;font-weight:600;color:#1B3C6E;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+.partner-list{display:flex;flex-direction:column;gap:10px}
+.partner-item{font-size:13px;color:#5A5650;display:flex;gap:8px;align-items:flex-start}
+.partner-item::before{content:'→';color:#1B3C6E;font-weight:600;flex-shrink:0}
+
+/* CTA */
+.cta{
+  background:#F0EBE0;padding:80px 48px;
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+}
+.cta-left h2{font-size:36px;font-weight:200;color:#1B3C6E !important;letter-spacing:-0.8px;margin-bottom:12px}
+
+.cta-left p{font-size:14px;color:#5A5650 !important;line-height:1.7}
+.cta-form{display:flex;flex-direction:column;gap:10px}
+.form-row{display:flex;gap:10px}
+.cta-input{
+  flex:1;width:100%;
+  background:#fff;border:1px solid #D4CFC5;border-radius:2px;
+  padding:13px 16px;font-family:'Inter',sans-serif;font-size:13px;color:#1B3C6E;
+  outline:none;transition:border-color 0.2s;
+}
+.cta-input:focus{border-color:#1B3C6E}
+.cta-input::placeholder{color:#B0AA9E}
+.btn-submit{
+  background:#1B3C6E;color:#F0EBE0 !important;
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  padding:14px;border:none;border-radius:2px;cursor:pointer;width:100%;
+  letter-spacing:0.3px;transition:background 0.2s;
+}
+.btn-submit:hover{background:#162E58}
+.form-note{font-size:11px;color:#B0AA9E;text-align:center}
+
+/* FOOTER */
+footer{background:#111E35;padding:36px 48px}
+.footer-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+}
+.footer-logo-btn{
+  display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;
+  padding:0;
+}
+.footer-logo-text{font-size:13px;font-weight:600;color:rgba(240,235,224,0.5) !important;letter-spacing:2px}
+.footer-links{display:flex;gap:28px;flex-wrap:wrap}
+.footer-links a{font-size:13px;color:rgba(240,235,224,0.45) !important;text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:#F0EBE0 !important}
+.footer-copy{font-size:11px;color:rgba(240,235,224,0.25) !important;text-align:right;line-height:1.6}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero h1{font-size:32px}
+  .hero h1 em{font-size:34px}
+  .hero-content{padding:0 20px 48px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-right:none;border-bottom:1px solid rgba(240,235,224,0.1)}
+  .intro,.cta{grid-template-columns:1fr;padding:48px 20px;gap:32px;min-height:auto}
+  .intro-img{height:280px;min-height:0}
+  .projects{padding:48px 20px}
+  .projects-grid{grid-template-columns:1fr}
+  .proj-card,.proj-card.large,.proj-card.half{grid-column:span 1}
+  .proj-img{min-height:240px}
+  .services{padding:48px 20px}
+  .services-grid{grid-template-columns:1fr}
+  .process{padding:48px 20px}
+  .process-steps{grid-template-columns:1fr;gap:24px}
+  .process-step:not(:last-child)::after{display:none}
+  .photo-strip{grid-template-columns:1fr}
+  .strip-img{height:220px}
+  .partners{padding:48px 20px}
+  .partners-grid{grid-template-columns:1fr}
+  footer{padding:28px 20px}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+  .footer-copy{text-align:left}
+}
+
+/* SCROLL REVEAL — subtle, premium */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+  will-change:opacity, transform;
+}
+.reveal.in{opacity:1;transform:translateY(0)}
+/* staggered children */
+.reveal-stagger > *{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-stagger.in > *{opacity:1;transform:translateY(0)}
+.reveal-stagger.in > *:nth-child(1){transition-delay:0.00s}
+.reveal-stagger.in > *:nth-child(2){transition-delay:0.07s}
+.reveal-stagger.in > *:nth-child(3){transition-delay:0.14s}
+.reveal-stagger.in > *:nth-child(4){transition-delay:0.21s}
+.reveal-stagger.in > *:nth-child(5){transition-delay:0.28s}
+.reveal-stagger.in > *:nth-child(6){transition-delay:0.35s}
+.reveal-stagger.in > *:nth-child(7){transition-delay:0.42s}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.reveal-stagger > *{opacity:1 !important;transform:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <svg width="24" height="20" viewBox="0 0 26 22" fill="none">
+      <polygon points="13,0 26,11 13,22 0,11" fill="#F0EBE0" opacity="0.2"/>
+      <polygon points="13,3 23,11 13,19" fill="#F0EBE0"/>
+      <polygon points="13,3 3,11 13,19" fill="#F0EBE0" opacity="0.5"/>
+    </svg>
+    <span class="nav-logo-text">СТРОЙКОМФОРТ</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#projects">Проекты</a></li>
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#process">Как мы работаем</a></li>
+    <li><a href="#partners">Партнёрам</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Получить консультацию</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img" id="heroImg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">С 2014 года</div>
+    <h1>Проектирование, строительство и отделка <em>под ключ</em></h1>
+    <p class="hero-sub">Полный цикл работ от технического задания до сдачи объекта — для частных и коммерческих заказчиков.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Обсудить проект</a>
+      <a href="#projects" class="btn-ghost">Смотреть объекты</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats reveal-stagger">
+  <div class="stat">
+    <div class="stat-num">7<sup>+</sup></div>
+    <div class="stat-label">лет опыта</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">50<sup>+</sup></div>
+    <div class="stat-label">реализованных объектов</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2<sup>+</sup></div>
+    <div class="stat-label">лет гарантии на работы</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">3</div>
+    <div class="stat-label">рабочих дня на смету</div>
+  </div>
+</div>
+
+<!-- UNIQUE VALUE — full height -->
+<section class="intro">
+  <div class="intro-text reveal">
+    <div class="section-label-dark">Наш подход</div>
+    <h2>Находим <em>оптимальные решения</em>, а не просто выполняем смету</h2>
+    <p>Каждый объект — это баланс бюджета, сроков и качества. Мы берём на себя планирование, контроль субподрядчиков и инженерных решений, чтобы заказчик получал результат, а не процесс.</p>
+    <div class="intro-points">
+      <div class="intro-point">
+        <div class="intro-point-mark"></div>
+        <div class="intro-point-text"><strong>Полный контроль процесса</strong> — от проектирования до сдачи, без передачи ответственности между подрядчиками.</div>
+      </div>
+      <div class="intro-point">
+        <div class="intro-point-mark"></div>
+        <div class="intro-point-text"><strong>Опыт с частными и крупными заказчиками</strong> — от квартир до административных и коммерческих зданий.</div>
+      </div>
+      <div class="intro-point">
+        <div class="intro-point-mark"></div>
+        <div class="intro-point-text"><strong>Прозрачная документация</strong> — договор, акты, исполнительная документация на каждом этапе.</div>
+      </div>
+    </div>
+    <a href="#projects" class="btn-primary" style="background:#1B3C6E !important;color:#F0EBE0 !important;margin-top:28px">Смотреть проекты</a>
+  </div>
+  <div class="intro-img reveal"></div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="projects" id="projects">
+  <div class="section-label reveal">Портфолио</div>
+  <h2 class="section-title-light reveal">Реализованные <em>объекты</em></h2>
+  <div class="projects-grid reveal-stagger">
+
+    <div class="proj-card large">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782135828/%D0%96%D1%83%D1%80%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_14_jilapb.png')"></div>
+      <div class="proj-overlay">
+        <div class="proj-tag">Капитальное строительство</div>
+        <div class="proj-name">Капитальный ремонт административного здания</div>
+        <div class="proj-meta">340 м²</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782135835/%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%BE%D0%BA_%D0%B2%D0%BE%D1%81%D1%85%D0%BE%D0%B4_gn38np.png')"></div>
+      <div class="proj-overlay">
+        <div class="proj-tag">Частное строительство</div>
+        <div class="proj-name">Строительство индивидуального жилого дома из кирпича</div>
+        <div class="proj-meta">189 м²</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782135836/%D0%9A%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_45_saatxh.png');background-position:top center"></div>
+      <div class="proj-overlay">
+        <div class="proj-tag">Капитальное строительство</div>
+        <div class="proj-name">Капитальный ремонт мансардного этажа</div>
+        <div class="proj-meta">410 м²</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782135827/%D0%9F%D0%BE%D1%81%D1%91%D0%BB%D0%BE%D0%BA_%D0%98%D1%82%D0%B0%D0%BB%D0%B8%D1%8F_hqtuxw.png')"></div>
+      <div class="proj-overlay">
+        <div class="proj-tag">Интерьер</div>
+        <div class="proj-name">Дизайн и реализация интерьера частного жилого дома в стиле современный минимализм</div>
+        <div class="proj-meta">150 м²</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782135827/%D0%9A%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%BA%D0%B0_eynn8v.png')"></div>
+      <div class="proj-overlay">
+        <div class="proj-tag">Интерьер</div>
+        <div class="proj-name">Отделка интерьера в классическом стиле</div>
+        <div class="proj-meta">154 м²</div>
+      </div>
+    </div>
+
+    <div class="proj-card half">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782136069/%D0%A1%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%8C%D0%B5%D1%80_m6gsuk.jpg')"></div>
+      <div class="proj-overlay">
+        <div class="proj-tag">Интерьер</div>
+        <div class="proj-name">Отделка квартиры в современном стиле</div>
+        <div class="proj-meta">84 м²</div>
+      </div>
+    </div>
+
+    <div class="proj-card half">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782135805/%D0%9A%D0%BE%D0%BC%D0%BC%D0%B5%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5_%D0%BF%D0%BE%D0%BC%D0%B5%D1%89%D0%B5%D0%BD%D0%B8%D0%B5_cql6ks.png')"></div>
+      <div class="proj-overlay">
+        <div class="proj-tag">Интерьер</div>
+        <div class="proj-name">Отделка офисного помещения</div>
+        <div class="proj-meta">340 м²</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES — separated by audience -->
+<section class="services" id="services">
+  <div class="section-label-dark">Что мы делаем</div>
+  <h2 class="section-title-dark">Услуги для <em>заказчиков и партнёров</em></h2>
+  <p class="section-sub">Комплексный индивидуальный подход к каждой задаче — независимо от масштаба объекта.</p>
+
+  <div class="services-block-title">Для заказчиков</div>
+  <div class="services-grid reveal-stagger">
+    <div class="svc-card">
+      <div class="svc-num">01</div>
+      <div class="svc-title">Проектирование и документация</div>
+      <div class="svc-text">Поможем с подготовкой разрешительной документации, рабочих проектов, смет по ГЭСН и ФЕР.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <div class="svc-title">Общестроительные и монтажные работы</div>
+      <div class="svc-text">Полный цикл: общестрой, инженерные системы, отделка — с контролем субподрядчиков на каждом этапе.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <div class="svc-title">Подбор участка или квартиры</div>
+      <div class="svc-text">Рекомендуем проверенных риелторов и специалистов по приёмке объектов из числа наших партнёров.</div>
+    </div>
+  </div>
+
+  <div class="services-block-title">Для партнёров</div>
+  <div class="services-grid reveal-stagger">
+    <div class="svc-card">
+      <div class="svc-num">04</div>
+      <div class="svc-title">Совместная работа по вашему проекту</div>
+      <div class="svc-text">Подберём проектировщика или дизайнера под задачу клиента, либо подключимся к уже готовому проекту.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">05</div>
+      <div class="svc-title">Сотрудничество с дизайнерами и проектировщиками</div>
+      <div class="svc-text">Работаем в связке с профильными специалистами — рекомендуем друг друга клиентам.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">06</div>
+      <div class="svc-title">Реферальное вознаграждение</div>
+      <div class="svc-text">Прозрачные условия сотрудничества и вознаграждение за рекомендации риелторам и агентствам.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS (replaces "Why") -->
+<section class="process" id="process">
+  <svg class="process-geo" width="400" height="400" viewBox="0 0 400 400">
+    <rect x="50" y="50" width="150" height="150" transform="rotate(45 125 125)" fill="#F0EBE0"/>
+    <rect x="200" y="150" width="120" height="120" transform="rotate(45 260 210)" fill="#F0EBE0"/>
+    <rect x="20" y="220" width="130" height="130" transform="rotate(45 85 285)" fill="#F0EBE0"/>
+  </svg>
+  <div style="margin-bottom:48px;position:relative;z-index:2">
+    <div class="section-label" style="color:rgba(240,235,224,0.4)">Как мы работаем</div>
+    <h2 class="section-title-light" style="margin-bottom:0">От заявки <em>до сдачи объекта</em></h2>
+  </div>
+  <div class="process-steps reveal-stagger">
+    <div class="process-step">
+      <div class="process-num">1</div>
+      <div class="process-title">Выезд на замер</div>
+      <div class="process-text">Бесплатный выезд специалиста на объект для оценки задачи.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">2</div>
+      <div class="process-title">Расчёт стоимости</div>
+      <div class="process-text">Детальная смета с разбивкой по позициям в течение 3 рабочих дней.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">3</div>
+      <div class="process-title">Закупки и монтаж</div>
+      <div class="process-text">Закупаем материалы, контролируем сроки и качество монтажа.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">4</div>
+      <div class="process-title">Финальная уборка</div>
+      <div class="process-text">Клининг объекта перед сдачей — без дополнительных затрат для заказчика.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">5</div>
+      <div class="process-title">Сдача объекта</div>
+      <div class="process-text">Подписание актов, передача исполнительной документации.</div>
+    </div>
+  </div>
+</section>
+
+<div class="photo-strip">
+  <div class="strip-img" style="background-image:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782135803/%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD_%D1%81%D0%BE_%D1%88%D1%82%D0%BE%D1%80%D0%B0%D0%BC%D0%B8_wnql4t.jpg')"></div>
+  <div class="strip-img" style="background-image:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782135831/%D0%9B%D0%B5%D0%BF%D0%BD%D0%B8%D0%BD%D0%B0_rzjuiz.png')"></div>
+  <div class="strip-img" style="background-image:url('https://res.cloudinary.com/dinmjggwe/image/upload/v1782135819/%D0%9F%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%BD%D0%B0%D1%8F_wcd2nq.png')"></div>
+</div>
+
+<!-- PARTNERS -->
+<section class="partners" id="partners">
+  <div class="section-label-dark">Сотрудничество</div>
+  <h2 class="section-title-dark">Наши <em>партнёры</em></h2>
+  <p class="section-sub">Работаем в связке с проверенными специалистами на каждом этапе — от проекта до меблировки готового объекта.</p>
+  <div class="partners-grid reveal-stagger">
+    <div class="partner-card">
+      <div class="partner-card-title">Проектирование и дизайн</div>
+      <div class="partner-list">
+        <div class="partner-item">Архитектурные бюро</div>
+        <div class="partner-item">Дизайнеры интерьера</div>
+        <div class="partner-item">Инженеры-проектировщики</div>
+      </div>
+    </div>
+    <div class="partner-card">
+      <div class="partner-card-title">Поставщики</div>
+      <div class="partner-list">
+        <div class="partner-item">Материалы и оборудование</div>
+        <div class="partner-item">Производители мебели</div>
+        <div class="partner-item">Инженерные системы</div>
+      </div>
+    </div>
+    <div class="partner-card">
+      <div class="partner-card-title">Недвижимость</div>
+      <div class="partner-list">
+        <div class="partner-item">Риелторские агентства</div>
+        <div class="partner-item">Специалисты по приёмке объектов</div>
+        <div class="partner-item">Частные риелторы</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-left">
+    <h2>Записаться на <em>консультацию</em></h2>
+    <p>Оставьте заявку — свяжемся с вами для уточнения деталей и организации выезда на замер.</p>
+    <div style="margin-top:28px;display:flex;flex-direction:column;gap:10px">
+      <a href="tel:89939522291" style="font-size:18px;font-weight:500;color:#1B3C6E;text-decoration:none">8 (993) 952-22-91</a>
+      <a href="mailto:i@stroikomfortnsk.ru" style="font-size:14px;color:#5A5650;text-decoration:none">i@stroikomfortnsk.ru</a>
+    </div>
+  </div>
+  <div class="cta-form">
+    <div class="form-row">
+      <input class="cta-input" id="form-name" type="text" placeholder="Ваше имя">
+      <input class="cta-input" id="form-phone" type="tel" placeholder="Телефон">
+    </div>
+    <textarea class="cta-input" id="form-desc" rows="4" placeholder="Кратко об объекте — тип, площадь, задача" style="resize:vertical"></textarea>
+    <button class="btn-submit" id="form-btn" type="button" onclick="sendToTelegram()">Отправить заявку</button>
+    <p class="form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <button class="footer-logo-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="20" height="17" viewBox="0 0 26 22" fill="none">
+        <polygon points="13,0 26,11 13,22 0,11" fill="#F0EBE0" opacity="0.15"/>
+        <polygon points="13,3 23,11 13,19" fill="#F0EBE0" opacity="0.55"/>
+        <polygon points="13,3 3,11 13,19" fill="#F0EBE0" opacity="0.3"/>
+      </svg>
+      <span class="footer-logo-text">СТРОЙКОМФОРТ</span>
+    </button>
+    <div class="footer-links">
+      <a href="tel:89939522291">8 (993) 952-22-91</a>
+      <a href="mailto:i@stroikomfortnsk.ru">i@stroikomfortnsk.ru</a>
+    </div>
+    <span class="footer-copy">ИП Лялин М.В.<br>Новосибирск · 2025</span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var heroImg = document.getElementById('heroImg');
+  setTimeout(function() { heroImg.classList.add('loaded'); }, 100);
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function(el) { obs.observe(el); });
+  } else {
+    revealEls.forEach(function(el) { el.classList.add('in'); });
+  }
+});
+
+async function sendToTelegram() {
+  var BOT_TOKEN = '8743517146:AAFKe-QyCaX7-ceySHKp6WOusl06WeGyEFk';
+  var CHAT_ID = '1262284857';
+
+  var name = document.getElementById('form-name').value.trim();
+  var phone = document.getElementById('form-phone').value.trim();
+  var desc = document.getElementById('form-desc').value.trim();
+  var btn = document.getElementById('form-btn');
+
+  if (!name || !phone) {
+    alert('Пожалуйста, заполните имя и телефон');
+    return;
+  }
+
+  btn.textContent = 'Отправляем...';
+  btn.disabled = true;
+
+  var text = 'Новая заявка с сайта СтройКомфорт' + '\n\n';
+  text += 'Имя: ' + name + '\n';
+  text += 'Телефон: ' + phone;
+  if (desc) { text += '\nОбъект: ' + desc; }
+
+  try {
+    var res = await fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: CHAT_ID, text: text })
+    });
+    var data = await res.json();
+    if (data.ok) {
+      btn.textContent = '✓ Заявка отправлена!';
+      btn.style.background = '#2d7a4f';
+      document.getElementById('form-name').value = '';
+      document.getElementById('form-phone').value = '';
+      document.getElementById('form-desc').value = '';
+      setTimeout(function() {
+        btn.textContent = 'Отправить заявку';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    } else {
+      throw new Error('Telegram error');
+    }
+  } catch(e) {
+    btn.textContent = 'Ошибка — попробуйте ещё раз';
+    btn.style.background = '#c0392b';
+    btn.disabled = false;
+    setTimeout(function() {
+      btn.textContent = 'Отправить заявку';
+      btn.style.background = '';
+    }, 3000);
+  }
+}
+</script>
+
+</body>
+</html>
